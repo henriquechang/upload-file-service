@@ -3,11 +3,11 @@ class UploadErrorHandler:
     def __init__(self):
         self.errors = []
 
-    def add_upload_error(self, description: str, file_name: str):
+    def add_upload_error(self, description: str, bucket: str):
         """Adds upload error to error array
 
           :param description: Error description message
-          :param file_name: file name for reference
+          :param bucket: bucket name for reference
         """
-        self.errors.append(f'{description} for file: ' + file_name)
+        self.errors.append(f'{description}. Upload to bucket: ' + bucket + ' failed.')
 

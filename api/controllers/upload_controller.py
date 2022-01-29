@@ -32,6 +32,6 @@ class UploadController:
         try:
             self.s3_service.upload_file(file, bucket)
         except Exception as e:
-            self.error_handler.add_upload_error(e.args[0], file.name)
+            self.error_handler.add_upload_error(e.args[0], bucket)
             return False
         return True

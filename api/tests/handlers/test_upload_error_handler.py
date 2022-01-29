@@ -13,11 +13,11 @@ class TestUploadErrorHandler(TestCase):
 
     def test_upload_error(self):
         description = fake.pystr()
-        file_name = fake.pystr()
+        bucket = fake.pystr()
         errors_count = fake.pyint(min_value=1, max_value=10)
         for _ in range(0, errors_count):
-            self.upload_error_handler.add_upload_error(description, file_name)
+            self.upload_error_handler.add_upload_error(description, bucket)
         self.assertListEqual(
             self.upload_error_handler.errors,
-            [f"{description} for file: {file_name}" for _ in range(0, errors_count)]
+            [f"{description}. Upload to bucket: {bucket} failed." for _ in range(0, errors_count)]
         )
